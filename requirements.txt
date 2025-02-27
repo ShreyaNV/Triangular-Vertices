@@ -1,1 +1,5 @@
 ipython==8.12.3
+numpy
+pandas
+matplotlib
+streamlit
