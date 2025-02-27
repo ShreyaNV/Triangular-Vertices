@@ -21,7 +21,7 @@ jobs:
 
       - name: Convert Notebook to Python Script
         run: |
-          jupyter nbconvert --to script your_notebook.ipynb
+          jupyter nbconvert --to script PYTHON PROJECT.ipynb
 
       - name: Run the Converted Python Script
         run: |
