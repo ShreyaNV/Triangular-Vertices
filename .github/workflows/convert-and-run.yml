@@ -1,0 +1,28 @@
+name: Convert and Run Jupyter Notebook
+
+on: [push, pull_request]  # Runs on every push or pull request
+
+jobs:
+  convert-run:
+    runs-on: ubuntu-latest  # GitHub will use an Ubuntu machine
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3  # Gets the latest code from GitHub
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # You can change the Python version if needed
+
+      - name: Install Jupyter and Dependencies
+        run: |
+          pip install jupyter pandas numpy matplotlib  # Add other required packages
+
+      - name: Convert Notebook to Python Script
+        run: |
+          jupyter nbconvert --to script your_notebook.ipynb
+
+      - name: Run the Converted Python Script
+        run: |
+          python your_notebook.py
